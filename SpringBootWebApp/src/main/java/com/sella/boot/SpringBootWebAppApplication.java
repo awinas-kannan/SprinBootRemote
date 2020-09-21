@@ -34,6 +34,9 @@ public class SpringBootWebAppApplication {
 	 * status.
 	 */
 	
+	//at the time of wrking with this, the appication ran on 9090 and 
+	//the applicaion which tried to access ran on 8080
+	
 	@SuppressWarnings("deprecation")
 	@Bean
 	public WebMvcConfigurer corsConfigurer() {
@@ -41,6 +44,10 @@ public class SpringBootWebAppApplication {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/saveEmployee").allowedOrigins("http://localhost:8080");
+				
+				//React Applicaiton get request
+				registry.addMapping("/getAllEmployee").allowedOrigins("http://localhost:3000");
+				registry.addMapping("/saveEmployee").allowedOrigins("http://localhost:3000");
 			}
 		};
 	}
