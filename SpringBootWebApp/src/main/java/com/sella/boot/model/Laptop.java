@@ -1,5 +1,9 @@
 package com.sella.boot.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -7,8 +11,10 @@ import org.springframework.stereotype.Component;
 @Component(value = "lap")
 
 //@Scope(value = "prototype")
+@Entity
+@Table(name = "Laptop")
 public class Laptop {
-
+	@Id
 	private Integer laptopId;
 	private String brand;
 	private String ram;

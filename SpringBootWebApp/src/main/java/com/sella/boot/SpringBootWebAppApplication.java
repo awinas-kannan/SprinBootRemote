@@ -48,6 +48,8 @@ public class SpringBootWebAppApplication {
 				//React Applicaiton get request
 				registry.addMapping("/getAllEmployee").allowedOrigins("http://localhost:3000");
 				registry.addMapping("/saveEmployee").allowedOrigins("http://localhost:3000");
+				
+				registry.addMapping("/getAllLaptops").allowedOrigins("http://localhost:3000");
 			}
 		};
 	}
