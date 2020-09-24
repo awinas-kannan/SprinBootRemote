@@ -2,6 +2,7 @@ package com.sella.boot.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -68,6 +69,21 @@ public class EmployeeH2Controller {
 	}
 
 	/*
+	 * http://localhost:8080/searchEmployeeByName?name=a
+	 */
+	@RequestMapping("searchEmployeeByName")
+	public List<Employee> searchByName(String name) {
+		List<Employee> empList = new ArrayList<>();
+		empList = (List<Employee>) repo.findAll();
+		if (name == null || name == "") {
+			return empList;
+		} else {
+		 return	empList.stream().filter((e) -> e.getName().startsWith(name)).collect(Collectors.toList());
+		}
+
+	}
+
+	/*
 	 * http://localhost:8080/deleteEmployee?eid=1 //QueryParam
 	 */
 	@RequestMapping("deleteEmployee")
@@ -108,7 +124,7 @@ public class EmployeeH2Controller {
 	 * {"name": "kannan", "age": null, "tech": "db" }
 	 */
 	@PostMapping("saveEmployee")
-	//@CrossOrigin(origins = "http://localhost:8080")
+	// @CrossOrigin(origins = "http://localhost:8080")
 	public Employee saveEmployee(@RequestBody Employee emp) {
 		repo.save(emp);
 		return emp;

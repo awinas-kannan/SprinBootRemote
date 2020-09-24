@@ -50,6 +50,8 @@ public class SpringBootWebAppApplication {
 				registry.addMapping("/saveEmployee").allowedOrigins("http://localhost:3000");
 				
 				registry.addMapping("/getAllLaptops").allowedOrigins("http://localhost:3000");
+				registry.addMapping("/searchEmployeeByName").allowedOrigins("http://localhost:3000");
+				
 			}
 		};
 	}
