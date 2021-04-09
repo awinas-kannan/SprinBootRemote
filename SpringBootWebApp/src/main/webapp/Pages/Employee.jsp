@@ -5,6 +5,9 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Employee Form</title>
+
+<!-- http://localhost:9090/Pages/Employee.jsp -->
+
 <!-- Access to XMLHttpRequest at
 'http://localhost:9090/saveEmployee' from origin 'http://localhost:8080'
 has been blocked by CORS policy: Response to preflight request doesn't

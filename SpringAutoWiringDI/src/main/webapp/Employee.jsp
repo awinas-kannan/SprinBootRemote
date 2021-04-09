@@ -37,13 +37,14 @@
 <body>
 
 	<form action="addEmployee">
-		Name <input type="text" name="name"><br> Tech <input
-			type="text" name="tech"><br> <input type="submit">
+		Name <input type="text" name="name"><br> 
+		Tech <input type="text" name="tech"><br> <input type="submit">
 	</form>
 	<form>
-		Name <input type="text" id="name1"><br> Tech <input
-			type="text" id="tech1"><br> <input type="button"
-			id="button" value="save employee">
+		Name <input type="text" id="name1"><br>
+	    Tech <input	type="text" id="tech1"><br> 
+	    
+	    <input type="button" id="button" value="save employee">
 	</form>
 
 

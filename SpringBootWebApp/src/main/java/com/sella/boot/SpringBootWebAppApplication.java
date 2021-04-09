@@ -37,6 +37,8 @@ public class SpringBootWebAppApplication {
 	//at the time of wrking with this, the appication ran on 9090 and 
 	//the applicaion which tried to access ran on 8080
 	
+	// 3000 - react
+	
 	@SuppressWarnings("deprecation")
 	@Bean
 	public WebMvcConfigurer corsConfigurer() {

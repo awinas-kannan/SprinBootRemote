@@ -22,11 +22,15 @@ public class EmployeeController {
 		return new ModelAndView("ShowAllEmployees");
 	}
 
+	//	http://localhost:9090/getEmp?name=awi&emp=tech
+	
 	@RequestMapping("getEmp")
 	public String getEmp(HttpServletRequest req) {
 		HttpSession session = req.getSession();
 		String name = req.getParameter("name");
 		session.setAttribute("name", name);
+		String emp = req.getParameter("emp");
+		session.setAttribute("emp", emp);
 		System.out.println(name);
 		System.out.println("hey emp");
 		return "home";
