@@ -86,7 +86,7 @@ public class EmployeeController {
 	}
 
 	@RequestMapping("getEmpObj1")
-	@ResponseBody
+	@ResponseBody // Respose body is added here
 	public Employee getEmpObj1(@RequestBody Employee emp) {
 		// System.out.println(name);
 		ModelAndView mv = new ModelAndView();

@@ -26,6 +26,8 @@ MVC
 JPA
 H2*/
 
+//http://localhost:9090/h2-console
+
 @RestController // (@Controller + @ResponseBody)
 public class EmployeeH2Controller {
 

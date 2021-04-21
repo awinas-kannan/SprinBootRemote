@@ -1,4 +1,4 @@
-package it.sella.boot;
+package it.sella.boot.model;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;

@@ -1,19 +1,20 @@
-package it.sella.boot;
+package it.sella.boot.model;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-
 @Component(value = "emp")
 @Scope(value = "prototype")
 public class Employee {
+
 	private Integer id;
 	private String name;
 	private String age;
 	private String tech;
 	private static Integer count = 0;
+
 	@Autowired
 	@Qualifier(value = "lap")
 	private Laptop laptop;
@@ -54,9 +55,17 @@ public class Employee {
 		this.tech = tech;
 	}
 
+	public Laptop getLaptop() {
+		return laptop;
+	}
+
+	public void setLaptop(Laptop laptop) {
+		this.laptop = laptop;
+	}
+
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", name=" + name + ", age=" + age + ", tech=" + tech + "]";
+		return "Employee [id=" + id + ", name=" + name + ", age=" + age + ", tech=" + tech + ", laptop=" + laptop + "]";
 	}
 
 	public Boolean isCreated() {
