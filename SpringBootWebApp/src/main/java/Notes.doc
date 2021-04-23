@@ -1,0 +1,65 @@
+Spring Boot web App:
+
+
+****** Springboot + WEB (EmployeeController.java)
+Dependency : web
+
+@RestController = @Controller + @ResponseBody ( The purpose of response body is that, we are telling dispatcher 
+servlet that we are returning data (Employee ,List<Employee) and not the view (.jsp)
+Without @ResponseBody , the jsp will be downloaded in page.
+
+<!-- Used for parsing the jsp page --> 
+<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-jasper</artifactId>
+			<version>9.0.27</version>
+</dependency>
+
+application.properties:
+**jsp page location:
+spring.mvc.view.prefix=/Pages/
+**View page extention
+spring.mvc.view.suffix=.jsp
+
+@RequestParam -> Directly map ( req.getParameter("") ) to variable
+Ex : (@RequestParam("name") String myName // http://localhost:8080/getEmp2?name=awi
+
+
+***** Springboot + WEB + JPA + H2 ( Inmemory database) // (EmployeeH2Controller.java)
+spring.h2.console.enabled=true
+spring.datasource.platform=h2
+spring.datasource.url=jdbc:h2:mem:awi
+
+http://localhost:9090/h2-console
+
+**Protocol in crudRepo
+
+findBy***
+getBy***
+
+
+JpaRepository extends CRUDRepository
+repo.findAll() in CRUDRepository return Iterable<Employee>
+repo.findAll() in JpaRepository return List<Employee>
+
+Jackson jar is reponsible for converting java object to json
+Jackson data format xml   is reponsible for converting java object to XML
+Content negotiation : requesting JSON / XML
+server producing different content types
+Client consumes different content types
+
+if produces and consumes vay ( 406 not acceptable error)
+
+
+****H2 , JPA ,Rest reposotories
+SpringDataRest:(SpringDataRestJPARepo.java)
+@RepositoryRestResource(collectionResourceRel = "employees", path = "employees")
+
+
+**check final segment of video
+We dont even need controller.
+We can specify the URL in JPSRepositoty class itself
+It will work based in Request Type (get ,post ,delete , put)
+
+****************
+Check mapping

@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.sella.boot.model.Employee;
 import com.sella.boot.repo.EmployeeCRUDRepo;
+import com.sella.boot.repo.SpringDataRestJPARepo;
 
 /*
 Spring boot
@@ -33,6 +34,9 @@ public class EmployeeH2Controller {
 
 	@Autowired
 	EmployeeCRUDRepo repo;
+
+	@Autowired
+	SpringDataRestJPARepo jparepo;
 
 	@RequestMapping("emp")
 	public ModelAndView showEmployeeForm() {
@@ -71,6 +75,15 @@ public class EmployeeH2Controller {
 	}
 
 	/*
+	 * http://localhost:8080/getAllEmployeeJPA
+	 */
+	@RequestMapping("getAllEmployeeJPA")
+	public List<Employee> getAllEmployeeJPA() {
+		return jparepo.findAll();
+
+	}
+
+	/*
 	 * http://localhost:8080/searchEmployeeByName?name=a
 	 */
 	@RequestMapping("searchEmployeeByName")
@@ -80,7 +93,7 @@ public class EmployeeH2Controller {
 		if (name == null || name == "") {
 			return empList;
 		} else {
-		 return	empList.stream().filter((e) -> e.getName().startsWith(name)).collect(Collectors.toList());
+			return empList.stream().filter((e) -> e.getName().startsWith(name)).collect(Collectors.toList());
 		}
 
 	}
@@ -150,6 +163,16 @@ public class EmployeeH2Controller {
 	@DeleteMapping("deleteEmployeee/{id}")
 	public String deleteEmployeee(@PathVariable("id") Integer eid) {
 		repo.deleteById(eid);
+		return "deleted";
+	}
+
+	/*
+	 * http://localhost:8080/checkanddeleteEmployeee/101
+	 */
+	@DeleteMapping("deleteEmployeee/{id}")
+	public String checkanddeleteEmployeee(@PathVariable("id") Integer eid) {
+		Employee e = jparepo.getOne(eid);
+		jparepo.delete(e);
 		return "deleted";
 	}
 }

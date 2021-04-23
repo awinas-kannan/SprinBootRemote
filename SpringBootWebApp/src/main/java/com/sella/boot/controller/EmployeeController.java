@@ -18,12 +18,12 @@ public class EmployeeController {
 
 	@RequestMapping("/")
 	public ModelAndView getHome() {
-		
+
 		return new ModelAndView("ShowAllEmployees");
 	}
 
-	//	http://localhost:9090/getEmp?name=awi&emp=tech
-	
+	// http://localhost:9090/getEmp?name=awi&emp=tech
+
 	@RequestMapping("getEmp")
 	public String getEmp(HttpServletRequest req) {
 		HttpSession session = req.getSession();
@@ -72,7 +72,10 @@ public class EmployeeController {
 	/*
 	 * http://localhost:8080/getEmpObj?id=1&tech=java&age=22&name=awians kannan
 	 * 
-	 * header : name = ak
+	 * header : namee = Rowdy
+	 * 
+	 *
+	 * { "id":1, "tech":"java", "age":"22", "name":"awians kannan" }
 	 */
 
 	@RequestMapping("getEmpObj")
@@ -85,15 +88,28 @@ public class EmployeeController {
 		return mv;
 	}
 
+//	http://localhost:9090/getEmpObj1
+//	 { "id":1, "tech":"java", "age":"22", "name":"awians kannan" }
+		
 	@RequestMapping("getEmpObj1")
 	@ResponseBody // Respose body is added here
 	public Employee getEmpObj1(@RequestBody Employee emp) {
-		// System.out.println(name);
 		ModelAndView mv = new ModelAndView();
 		System.out.println(emp);
 		mv.setViewName("home");
 		mv.addObject("emp", emp);
 
+		return emp;
+	}
+	
+	//Without @ResponseBody -> Error
+	@RequestMapping("getEmpObj2")
+	public Employee getEmpObj2(@RequestBody Employee emp) {
+		System.out.println("<getEmpObj2>");
+		ModelAndView mv = new ModelAndView();
+		System.out.println(emp);
+		mv.setViewName("home");
+		mv.addObject("emp", emp);
 		return emp;
 	}
 
