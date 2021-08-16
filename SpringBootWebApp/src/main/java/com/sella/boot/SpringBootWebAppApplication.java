@@ -22,6 +22,8 @@ public class SpringBootWebAppApplication {
 
 	}
 
+	
+	//Resttemplate bean will be created,we can use it using AutoWired annotation
 	@Bean
 	public RestTemplate getRestTemplate() {
 		return new RestTemplate();
