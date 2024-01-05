@@ -18,7 +18,7 @@ public class SpringAutoWiringDiApplication implements ApplicationRunner, Command
 	public static void main(String[] args) {
 		System.out.println("Inside Application !!!!!!!!!!!!!!!!!!");
 		ConfigurableApplicationContext context = SpringApplication.run(SpringAutoWiringDiApplication.class, args);
-
+		
 		// This will only create Employee object
 		// (if scope of laptop is prototype) Laptop object which is present inside this
 		// will not be created

@@ -169,7 +169,7 @@ public class EmployeeH2Controller {
 	/*
 	 * http://localhost:8080/checkanddeleteEmployeee/101
 	 */
-	@DeleteMapping("deleteEmployeee/{id}")
+	//@DeleteMapping("deleteEmployeee/{id}")
 	public String checkanddeleteEmployeee(@PathVariable("id") Integer eid) {
 		Employee e = jparepo.getOne(eid);
 		jparepo.delete(e);
