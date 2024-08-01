@@ -20,7 +20,7 @@
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<bootstrap.version>4.2.1</bootstrap.version>
+		<bootstrap.version>4.3.1</bootstrap.version>
 	</properties>
 	<dependencies>
 		<dependency>
